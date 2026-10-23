@@ -33,7 +33,7 @@
 		},
 		{
 			"key": "userEmail",
-			"value": "user@example.com",
+			"value": "johndoe@example.com",
 			"type": "string"
 		}
 	],
