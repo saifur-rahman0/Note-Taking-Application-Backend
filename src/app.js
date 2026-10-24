@@ -39,6 +39,22 @@ app.use('/api/notes', noteRoutes);         // Notes: user CRUD
 app.use('/api/admin', adminRoutes);        // Admin: user management, all notes, aggregation 1
 app.use('/api/posts', postRoutes);         // Posts: public list, create, aggregation 2 ($lookup)
 
+//   Default Root & /api Handler
+app.get(['/', '/api'], (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Secure Note-Taking Application Backend API is running successfully.',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth (register, login, me)',
+      notes: '/api/notes (CRUD user notes)',
+      admin: '/api/admin (user management, all notes, interests aggregation)',
+      posts: '/api/posts (public posts, $lookup user aggregation)'
+    }
+  });
+});
+
 //   Health Check             
 app.get('/api/health', (req, res) => {
   res.status(200).json({ success: true, message: 'API is running.', timestamp: new Date() });
